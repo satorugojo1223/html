@@ -1,0 +1,29 @@
+!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            formating
+
+
+        </title>
+    </head>
+    <body>
+        <p>hello everyonemy name is swastik rajawat im from class 6th</p>
+        <h1>my name is swastik</h1>
+        <h2>and i study in grade 6th</h2>
+        <h3>hello</h3>
+        <h4>ilike pizza</h4>
+        <h5>and visit</h5>
+        <h6>helo</h6>
+        <bold>my name is swastik</bold><br>
+        <strong>hwllo</strong><br>
+        <I>hello<I><br>
+            <em>im from japan</em><br>
+            <mark>hello idk want i want to write</mark><br>
+            <del>hello</del><br>
+            <small></small><br>
+            h<sub>2</sub>O<br>
+            a <sup>2</sup><br>
+ 
+    </body>
+</html>
