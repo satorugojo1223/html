@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ghoomo India – Explore India</title>
+</head>
+<body>
+
+  <!-- Main Heading -->
+  <h1>Welcome to Ghoomo India</h1>
+
+  <!-- Subheadings -->
+  <h2>Discover India</h2>
+  <h3>Popular Destinations</h3>
+  <h4>Cultural Experiences</h4>
+  <h5>Travel Tips</h5>
+  <h6>Stay Safe & Happy</h6>
+
+  <!-- Paragraph with basic formatting -->
+  <p>India is a land of <strong>diversity</strong> and <em>colorful traditions</em>. Whether you're exploring the <u>snowy Himalayas</u> or the <mark>deserts of Rajasthan</mark>, there's always something magical to experience.</p>
+
+  <!-- Small and bold text -->
+  <p><small>Note:</small> Always check weather before you travel.</p>
+  <p>Visit the <b>Taj Mahal</b> for a glimpse of <i>love in marble</i>.</p>
+
+  <!-- Horizontal line -->
+  <hr>
+
+  <!-- Blockquote -->
+  <blockquote>
+    "India is not just a country; it's an emotion."
+  </blockquote>
+
+  <!-- Subscript & Superscript Example -->
+  <p>Water formula: H<sub>2</sub>O &nbsp;&nbsp;&nbsp; Einstein’s Theory: E = mc<sup>2</sup></p>
+
+  <!-- Deleted and inserted text -->
+  <p><del>This destination is closed.</del> <ins>Now open for travel!</ins></p>
+
+  <!-- Abbreviation -->
+  <p>Explore the beauty of <abbr title="Incredible India">II</abbr>.</p>
+
+  <!-- Code & Keyboard example -->
+  <p>To search faster, press <kbd>Ctrl + F</kbd> and type the place name.</p>
+  <p>Sample HTML: <code>&lt;a href="..."&gt;Link&lt;/a&gt;</code></p>
+
+  <!-- Highlighted YouTube Travel Video -->
+  <h2>Watch Our Travel Video</h2>
+  <p>Click to watch: 
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+      Ghoomo India YouTube Video
+    </a>
+  </p>
+
+  <!-- Preformatted Text -->
+  <pre>
+Plan:
+- Delhi
+- Agra
+- Jaipur
+  </pre>
+
+  <!-- Span with Style -->
+  <p>Visit <span style="color:green;">Kerala</span> for a peaceful backwater journey.</p>
+
+</body>
+</html>
+
+
