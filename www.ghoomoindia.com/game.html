@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dodge the Bombs</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: black; overflow: hidden; }
+    canvas { display: block; background: #222; }
+    #touchControls {
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+    #touchControls button {
+      background: lime;
+      color: black;
+      font-size: 24px;
+      padding: 10px 30px;
+      margin: 0 20px;
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<div id="touchControls">
+  <button onclick="player.x -= player.speed">⬅️</button>
+  <button onclick="player.x += player.speed">➡️</button>
+</div>
+
+<script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const player = {
+    x: canvas.width / 2 - 25,
+    y: canvas.height - 70,
+    width: 50,
+    height: 50,
+    speed: 20
+  };
+
+  const bombs = [];
+  let score = 0;
+  let gameOver = false;
+
+  function spawnBomb() {
+    const size = 20;
+    const x = Math.random() * (canvas.width - size);
+    bombs.push({ x: x, y: -size, size: size });
+  }
+
+  function drawPlayer() {
+    ctx.fillStyle = 'lime';
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+  }
+
+  function drawBomb(bomb) {
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.arc(bomb.x, bomb.y, bomb.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function updateBombs() {
+    for (let i = 0; i < bombs.length; i++) {
+      const bomb = bombs[i];
+      bomb.y += 5;
+
+      if (
+        bomb.x > player.x &&
+        bomb.x < player.x + player.width &&
+        bomb.y + bomb.size > player.y &&
+        bomb.y < player.y + player.height
+      ) {
+        gameOver = true;
+      }
+
+      if (bomb.y > canvas.height) {
+        bombs.splice(i, 1);
+        i--;
+        score++;
+      }
+    }
+  }
+
+  function drawScore() {
+    ctx.fillStyle = 'white';
+    ctx.font = '20px Arial';
+    ctx.fillText(`Score: ${score}`, 20, 30);
+  }
+
+  function drawGameOver() {
+    ctx.fillStyle = 'red';
+    ctx.font = '50px Arial';
+    ctx.fillText('💀 GAME OVER 💀', canvas.width / 2 - 200, canvas.height / 2);
+  }
+
+  function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (gameOver) {
+      drawGameOver();
+      return;
+    }
+
+    drawPlayer();
+    bombs.forEach(drawBomb);
+    updateBombs();
+    drawScore();
+
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Controls (keyboard)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      player.x -= player.speed;
+      if (player.x < 0) player.x = 0;
+    }
+    if (e.key === 'ArrowRight') {
+      player.x += player.speed;
+      if (player.x + player.width > canvas.width)
+        player.x = canvas.width - player.width;
+    }
+  });
+
+  // Start
+  setInterval(spawnBomb, 1000);
+  gameLoop();
+</script>
+</body>
+</html>

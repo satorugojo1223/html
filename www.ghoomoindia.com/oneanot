@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>100 Level Stickman Platformer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: black; overflow: hidden; }
+    canvas { display: block; background: #111; }
+  </style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const gravity = 1;
+let currentLevel = 0;
+let gameOver = false;
+let gameWon = false;
+let health = 100;
+
+const player = {
+  x: 100,
+  y: 100,
+  width: 40,
+  height: 80,
+  dx: 0,
+  dy: 0,
+  speed: 5,
+  jumpForce: 20,
+  onGround: false,
+  reset() {
+    this.x = 100;
+    this.y = 100;
+    this.dx = 0;
+    this.dy = 0;
+  }
+};
+
+// Create 5 different level templates for variation
+const levelTemplates = [
+  () => ({
+    platforms: [
+      { x: 0, y: canvas.height - 50, width: canvas.width, height: 50 },
+      { x: 200, y: canvas.height - 150, width: 120, height: 20 },
+      { x: 400, y: canvas.height - 250, width: 120, height: 20 }
+    ],
+    lava: [
+      { x: 100, y: canvas.height - 30, width: 200, height: 20, type: "normal" }
+    ],
+    enemies: [
+      { x: 300, y: canvas.height - 90, width: 40, height: 40, dir: 1, speed: 2, alive: true }
+    ]
+  }),
+  () => ({
+    platforms: [
+      { x: 0, y: canvas.height - 50, width: canvas.width, height: 50 },
+      { x: 300, y: canvas.height - 180, width: 100, height: 20 },
+      { x: 600, y: canvas.height - 120, width: 100, height: 20 }
+    ],
+    lava: [
+      { x: 400, y: canvas.height - 30, width: 300, height: 20, type: "normal" }
+    ],
+    enemies: [
+      { x: 600, y: canvas.height - 160, width: 40, height: 40, dir: -1, speed: 1.5, alive: true }
+    ]
+  }),
+  () => ({
+    platforms: [
+      { x: 0, y: canvas.height - 50, width: canvas.width, height: 50 },
+      { x: 150, y: canvas.height - 220, width: 80, height: 20 },
+      { x: 450, y: canvas.height - 180, width: 100, height: 20 }
+    ],
+    lava: [],
+    enemies: [
+      { x: 200, y: canvas.height - 90, width: 40, height: 40, dir: 1, speed: 2, alive: true }
+    ]
+  }),
+  () => ({
+    platforms: [
+      { x: 0, y: canvas.height - 50, width: canvas.width, height: 50 },
+      { x: 100, y: canvas.height - 180, width: 200, height: 20 },
+      { x: 500, y: canvas.height - 240, width: 120, height: 20 }
+    ],
+    lava: [
+      { x: 250, y: canvas.height - 30, width: 150, height: 20, type: "normal" }
+    ],
+    enemies: []
+  }),
+  () => ({
+    platforms: [
+      { x: 0, y: canvas.height - 50, width: canvas.width, height: 50 },
+      { x: 350, y: canvas.height - 200, width: 100, height: 20 },
+      { x: 700, y: canvas.height - 260, width: 120, height: 20 }
+    ],
+    lava: [
+      { x: 600, y: canvas.height - 30, width: 200, height: 20, type: "normal" }
+    ],
+    enemies: [
+      { x: 650, y: canvas.height - 100, width: 40, height: 40, dir: -1, speed: 2, alive: true }
+    ]
+  })
+];
+
+const levels = [];
+for (let i = 0; i < 100; i++) {
+  const template = levelTemplates[i % levelTemplates.length];
+  levels.push(template());
+}
+
+const keys = {};
+document.addEventListener("keydown", e => keys[e.key] = true);
+document.addEventListener("keyup", e => keys[e.key] = false);
+
+function drawPlayer(x, y) {
+  ctx.strokeStyle = 'lime';
+  ctx.lineWidth = 4;
+  ctx.beginPath(); ctx.arc(x + 20, y + 20, 10, 0, Math.PI * 2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x + 20, y + 30); ctx.lineTo(x + 20, y + 60); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x + 5, y + 45); ctx.lineTo(x + 35, y + 45); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x + 20, y + 60); ctx.lineTo(x + 10, y + 80);
+  ctx.moveTo(x + 20, y + 60); ctx.lineTo(x + 30, y + 80); ctx.stroke();
+}
+
+function drawPlatform(p) {
+  ctx.fillStyle = "#444";
+  ctx.fillRect(p.x, p.y, p.width, p.height);
+}
+
+function drawLava(l) {
+  ctx.fillStyle = "red";
+  ctx.fillRect(l.x, l.y, l.width, l.height);
+}
+
+function drawEnemy(e) {
+  if (!e.alive) return;
+  ctx.fillStyle = "orange";
+  ctx.fillRect(e.x, e.y, e.width, e.height);
+}
+
+function update() {
+  if (keys['ArrowLeft']) player.dx = -player.speed;
+  else if (keys['ArrowRight']) player.dx = player.speed;
+  else player.dx = 0;
+
+  if (keys['ArrowUp'] && player.onGround) {
+    player.dy = -player.jumpForce;
+    player.onGround = false;
+  }
+
+  player.dy += gravity;
+  player.x += player.dx;
+  player.y += player.dy;
+  player.onGround = false;
+
+  const level = levels[currentLevel];
+
+  // Platforms
+  level.platforms.forEach(p => {
+    if (
+      player.x + player.width > p.x &&
+      player.x < p.x + p.width &&
+      player.y + player.height > p.y &&
+      player.y + player.height < p.y + p.height &&
+      player.dy >= 0
+    ) {
+      player.y = p.y - player.height;
+      player.dy = 0;
+      player.onGround = true;
+    }
+  });
+
+  // Lava
+  level.lava.forEach(l => {
+    if (
+      player.x + player.width > l.x &&
+      player.x < l.x + l.width &&
+      player.y + player.height > l.y
+    ) {
+      health = 0;
+      gameOver = true;
+    }
+  });
+
+  // Enemies
+  level.enemies.forEach(e => {
+    if (!e.alive) return;
+    e.x += e.dir * e.speed;
+    if (e.x < 0 || e.x + e.width > canvas.width) e.dir *= -1;
+
+    // Kill enemy if player jumps on top
+    if (
+      player.x + player.width > e.x &&
+      player.x < e.x + e.width &&
+      player.y + player.height > e.y &&
+      player.y + player.height < e.y + e.height + 20 &&
+      player.dy > 0
+    ) {
+      e.alive = false;
+      player.dy = -10;
+    }
+    // Player hit
+    else if (
+      player.x + player.width > e.x &&
+      player.x < e.x + e.width &&
+      player.y + player.height > e.y &&
+      player.y < e.y + e.height
+    ) {
+      health = 0;
+      gameOver = true;
+    }
+  });
+
+  if (player.y > canvas.height || health <= 0) {
+    gameOver = true;
+  }
+
+  if (player.x > canvas.width - 60 && currentLevel < levels.length - 1) {
+    currentLevel++;
+    player.reset();
+  } else if (player.x > canvas.width - 60 && currentLevel === levels.length - 1) {
+    gameWon = true;
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const level = levels[currentLevel];
+
+  level.platforms.forEach(drawPlatform);
+  level.lava.forEach(drawLava);
+  level.enemies.forEach(drawEnemy);
+  drawPlayer(player.x, player.y);
+
+  ctx.fillStyle = "white";
+  ctx.font = "20px Arial";
+  ctx.fillText(`Level ${currentLevel + 1}/100`, 20, 30);
+  ctx.fillText(`Health: ${health}`, 20, 60);
+
+  if (gameOver) {
+    ctx.fillStyle = 'red';
+    ctx.font = '50px Arial';
+    ctx.fillText("💀 GAME OVER 💀", canvas.width / 2 - 200, canvas.height / 2);
+  }
+
+  if (gameWon) {
+    ctx.fillStyle = 'lime';
+    ctx.font = '50px Arial';
+    ctx.fillText("🎉 YOU WON ALL 100 LEVELS! 🎉", canvas.width / 2 - 300, canvas.height / 2);
+  }
+}
+
+function gameLoop() {
+  if (!gameOver && !gameWon) update();
+  draw();
+  requestAnimationFrame(gameLoop);
+}
+gameLoop();
+</script>
+</body>
+</html>

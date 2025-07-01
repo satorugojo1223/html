@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accessing Secure Database...</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      padding: 10px;
+      overflow: hidden;
+    }
+    #terminal {
+      white-space: pre-wrap;
+      height: 100vh;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>
+
+  <script>
+    const terminal = document.getElementById('terminal');
+
+    const fakeCommands = [
+      "Connecting to 192.168.1.1...",
+      "Bypassing firewall...",
+      "Access granted.",
+      "Downloading files...",
+      "Injecting payload...",
+      "Hacking NASA mainframe...",
+      "Stealing cookies 🍪...",
+      "Encrypting memes...",
+      "Launching crypto miner...",
+      "💣 Detonating keyboard in 3... 2... 1...",
+    ];
+
+    function getRandomBinary(length) {
+      let result = "";
+      for (let i = 0; i < length; i++) {
+        result += Math.random() > 0.5 ? "1" : "0";
+      }
+      return result;
+    }
+
+    function addLine(text) {
+      terminal.innerHTML += text + "\n";
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    let i = 0;
+    function runFakeTerminal() {
+      if (i < fakeCommands.length) {
+        addLine("> " + fakeCommands[i]);
+        i++;
+        setTimeout(runFakeTerminal, 1000);
+      } else {
+        setInterval(() => {
+          addLine(getRandomBinary(64));
+        }, 80);
+      }
+    }
+
+    runFakeTerminal();
+  </script>
+</body>
+</html>

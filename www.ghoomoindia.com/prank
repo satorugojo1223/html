@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Virus Alert!</title>
+  <style>
+    body {
+      background-color: red;
+      color: white;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 60px;
+      animation: shake 0.3s infinite;
+    }
+    @keyframes shake {
+      0% { transform: translate(1px, 1px); }
+      50% { transform: translate(-1px, -2px); }
+      100% { transform: translate(1px, -1px); }
+    }
+    .alert {
+      margin-top: 30px;
+      font-size: 30px;
+      background: black;
+      padding: 20px;
+      border: 5px dashed yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚠️ VIRUS ALERT ⚠️</h1>
+  <div class="alert">
+    Your device has been infected with<br><b>MEME-420 TROJAN</b><br>
+    Contact your grandma for support.
+  </div>
+
+  <script>
+    // Looping funny alert popups
+    setInterval(() => {
+      alert("💀 SYSTEM ERROR: TOO MUCH CRINGE DETECTED!");
+    }, 8000); // every 8 seconds
+
+    // Play funny sound (only works after user interacts)
+    function playSound() {
+      let audio = new Audio("https://www.myinstants.com/media/sounds/windows-xp-error.mp3");
+      audio.play();
+    }
+
+    document.body.addEventListener("click", playSound);
+  </script>
+</body>
+</html>

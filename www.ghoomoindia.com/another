@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shrek Bomb Attack</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: black; overflow: hidden; }
+    canvas { display: block; background: #111; }
+    #touchControls {
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+    #touchControls button {
+      background: lime;
+      color: black;
+      font-size: 24px;
+      padding: 10px 30px;
+      margin: 0 20px;
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<div id="touchControls">
+  <button onclick="moveLeft()">⬅️</button>
+  <button onclick="moveRight()">➡️</button>
+</div>
+
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Player
+const player = {
+  x: canvas.width / 2,
+  y: canvas.height - 100,
+  speed: 20,
+  width: 50,
+  height: 90
+};
+
+// Meme enemy: Shrek
+const shreks = [
+  { x: 100, y: 50 },
+  { x: canvas.width / 2, y: 50 },
+  { x: canvas.width - 100, y: 50 }
+];
+
+// Bombs thrown by Shrek
+const bombs = [];
+
+function spawnBomb() {
+  shreks.forEach(shrek => {
+    bombs.push({ x: shrek.x, y: shrek.y + 40, size: 15 });
+  });
+}
+
+function drawShrek(x, y) {
+  ctx.fillStyle = "green";
+  ctx.beginPath();
+  ctx.arc(x, y, 25, 0, Math.PI * 2); // Head
+  ctx.fill();
+
+  ctx.strokeStyle = "green";
+  ctx.lineWidth = 4;
+  ctx.beginPath(); // Body
+  ctx.moveTo(x, y + 25);
+  ctx.lineTo(x, y + 60);
+  ctx.stroke();
+
+  ctx.beginPath(); // Arms
+  ctx.moveTo(x - 15, y + 40);
+  ctx.lineTo(x + 15, y + 40);
+  ctx.stroke();
+
+  ctx.beginPath(); // Legs
+  ctx.moveTo(x, y + 60);
+  ctx.lineTo(x - 10, y + 90);
+  ctx.moveTo(x, y + 60);
+  ctx.lineTo(x + 10, y + 90);
+  ctx.stroke();
+}
+
+function drawStickman() {
+  ctx.strokeStyle = 'white';
+  ctx.lineWidth = 4;
+
+  const headX = player.x;
+  const headY = player.y;
+
+  ctx.beginPath(); // Head
+  ctx.arc(headX, headY, 15, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.beginPath(); // Body
+  ctx.moveTo(headX, headY + 15);
+  ctx.lineTo(headX, headY + 50);
+  ctx.stroke();
+
+  ctx.beginPath(); // Arms
+  ctx.moveTo(headX - 20, headY + 30);
+  ctx.lineTo(headX + 20, headY + 30);
+  ctx.stroke();
+
+  ctx.beginPath(); // Legs
+  ctx.moveTo(headX, headY + 50);
+  ctx.lineTo(headX - 15, headY + 80);
+  ctx.moveTo(headX, headY + 50);
+  ctx.lineTo(headX + 15, headY + 80);
+  ctx.stroke();
+}
+
+function drawBomb(bomb) {
+  ctx.fillStyle = 'red';
+  ctx.beginPath();
+  ctx.arc(bomb.x, bomb.y, bomb.size, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function updateBombs() {
+  for (let i = 0; i < bombs.length; i++) {
+    const bomb = bombs[i];
+    bomb.y += 6;
+
+    // Collision with player
+    if (
+      bomb.x > player.x - player.width / 2 &&
+      bomb.x < player.x + player.width / 2 &&
+      bomb.y + bomb.size > player.y &&
+      bomb.y < player.y + player.height
+    ) {
+      gameOver = true;
+    }
+
+    // Remove bomb if off-screen
+    if (bomb.y > canvas.height) {
+      bombs.splice(i, 1);
+      i--;
+      score++;
+    }
+  }
+}
+
+function drawScore() {
+  ctx.fillStyle = 'white';
+  ctx.font = '20px Arial';
+  ctx.fillText(`Score: ${score}`, 20, 30);
+}
+
+function drawGameOver() {
+  ctx.fillStyle = 'red';
+  ctx.font = '50px Arial';
+  ctx.fillText('💀 GAME OVER 💀', canvas.width / 2 - 200, canvas.height / 2);
+}
+
+let gameOver = false;
+let score = 0;
+
+function gameLoop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (gameOver) {
+    drawGameOver();
+    return;
+  }
+
+  // Draw enemies
+  shreks.forEach(shrek => drawShrek(shrek.x, shrek.y));
+
+  drawStickman();
+  bombs.forEach(drawBomb);
+  updateBombs();
+  drawScore();
+
+  requestAnimationFrame(gameLoop);
+}
+
+// Movement
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') moveLeft();
+  if (e.key === 'ArrowRight') moveRight();
+});
+
+function moveLeft() {
+  player.x -= player.speed;
+  if (player.x < 30) player.x = 30;
+}
+function moveRight() {
+  player.x += player.speed;
+  if (player.x > canvas.width - 30) player.x = canvas.width - 30;
+}
+
+// Start
+setInterval(spawnBomb, 1200);
+gameLoop();
+</script>
+</body>
+</html>

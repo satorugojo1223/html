@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Memes & Roblox Quiz</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #111, #222);
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    #quiz-box {
+      background: #333;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 20px lime;
+    }
+
+    h1 {
+      color: #00ffcc;
+    }
+
+    button {
+      background: #00cc66;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00e68a;
+    }
+
+    #result {
+      font-size: 20px;
+      margin-top: 15px;
+      color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="quiz-box">
+    <h1>🔥 Meme & Roblox Quiz 🔥</h1>
+    <p id="question">Loading question...</p>
+    <div id="options"></div>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const quiz = [
+      {
+        q: "Which Roblox game is famous for disasters?",
+        options: ["Adopt Me", "Natural Disaster Survival", "Brookhaven", "Pet Simulator X"],
+        answer: "Natural Disaster Survival"
+      },
+      {
+        q: "Which meme features a dog in a burning room saying 'This is fine'?",
+        options: ["Cheems", "Shiba Rage", "This is fine", "Doge King"],
+        answer: "This is fine"
+      },
+      {
+        q: "In Roblox, which game has rainbow obbies?",
+        options: ["Arsenal", "Tower of Hell", "Murder Mystery", "Evade"],
+        answer: "Tower of Hell"
+      },
+      {
+        q: "What meme says: 'Bruh moment'?",
+        options: ["Pepe the Frog", "Chad", "Bruh", "Giga Chad"],
+        answer: "Bruh"
+      },
+      {
+        q: "Which Roblox game lets you become any job in a city?",
+        options: ["MeepCity", "Jailbreak", "Brookhaven", "Doors"],
+        answer: "Brookhaven"
+      }
+    ];
+
+    let current = 0;
+
+    function loadQuestion() {
+      const q = quiz[current];
+      document.getElementById("question").innerText = q.q;
+      const optionsDiv = document.getElementById("options");
+      optionsDiv.innerHTML = "";
+
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.innerText = option;
+        btn.onclick = () => checkAnswer(option);
+        optionsDiv.appendChild(btn);
+      });
+
+      document.getElementById("result").innerText = "";
+    }
+
+    function checkAnswer(selected) {
+      const correct = quiz[current].answer;
+      if (selected === correct) {
+        document.getElementById("result").innerText = "✅ Correct!";
+      } else {
+        document.getElementById("result").innerText = `❌ Wrong! Correct: ${correct}`;
+      }
+
+      setTimeout(() => {
+        current++;
+        if (current < quiz.length) {
+          loadQuestion();
+        } else {
+          document.getElementById("quiz-box").innerHTML = `<h1>🎉 Quiz Complete!</h1><p>Thanks for playing!</p>`;
+        }
+      }, 1500);
+    }
+
+    loadQuestion();
+  </script>
+
+</body>
+</html>

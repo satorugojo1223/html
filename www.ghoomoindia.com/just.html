@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dodge the Bombs (Stickman Edition)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: black; overflow: hidden; }
+    canvas { display: block; background: #222; }
+    #touchControls {
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+    #touchControls button {
+      background: lime;
+      color: black;
+      font-size: 24px;
+      padding: 10px 30px;
+      margin: 0 20px;
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<div id="touchControls">
+  <button onclick="moveLeft()">⬅️</button>
+  <button onclick="moveRight()">➡️</button>
+</div>
+
+<script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const player = {
+    x: canvas.width / 2,
+    y: canvas.height - 100,
+    speed: 20,
+    width: 50, // used for collision
+    height: 90
+  };
+
+  const bombs = [];
+  let score = 0;
+  let gameOver = false;
+
+  function spawnBomb() {
+    const size = 20;
+    const x = Math.random() * (canvas.width - size);
+    bombs.push({ x: x, y: -size, size: size });
+  }
+
+  function drawStickman() {
+    ctx.strokeStyle = 'lime';
+    ctx.lineWidth = 4;
+
+    const headX = player.x;
+    const headY = player.y;
+
+    // Head
+    ctx.beginPath();
+    ctx.arc(headX, headY, 15, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Body
+    ctx.beginPath();
+    ctx.moveTo(headX, headY + 15);
+    ctx.lineTo(headX, headY + 50);
+    ctx.stroke();
+
+    // Arms
+    ctx.beginPath();
+    ctx.moveTo(headX - 20, headY + 30);
+    ctx.lineTo(headX + 20, headY + 30);
+    ctx.stroke();
+
+    // Legs
+    ctx.beginPath();
+    ctx.moveTo(headX, headY + 50);
+    ctx.lineTo(headX - 15, headY + 80);
+    ctx.moveTo(headX, headY + 50);
+    ctx.lineTo(headX + 15, headY + 80);
+    ctx.stroke();
+  }
+
+  function drawBomb(bomb) {
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.arc(bomb.x, bomb.y, bomb.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function updateBombs() {
+    for (let i = 0; i < bombs.length; i++) {
+      const bomb = bombs[i];
+      bomb.y += 5;
+
+      if (
+        bomb.x > player.x - player.width / 2 &&
+        bomb.x < player.x + player.width / 2 &&
+        bomb.y + bomb.size > player.y &&
+        bomb.y < player.y + player.height
+      ) {
+        gameOver = true;
+      }
+
+      if (bomb.y > canvas.height) {
+        bombs.splice(i, 1);
+        i--;
+        score++;
+      }
+    }
+  }
+
+  function drawScore() {
+    ctx.fillStyle = 'white';
+    ctx.font = '20px Arial';
+    ctx.fillText(`Score: ${score}`, 20, 30);
+  }
+
+  function drawGameOver() {
+    ctx.fillStyle = 'red';
+    ctx.font = '50px Arial';
+    ctx.fillText('💀 GAME OVER 💀', canvas.width / 2 - 200, canvas.height / 2);
+  }
+
+  function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (gameOver) {
+      drawGameOver();
+      return;
+    }
+
+    drawStickman();
+    bombs.forEach(drawBomb);
+    updateBombs();
+    drawScore();
+
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Keyboard movement
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') moveLeft();
+    if (e.key === 'ArrowRight') moveRight();
+  });
+
+  // Touch movement
+  function moveLeft() {
+    player.x -= player.speed;
+    if (player.x < 20) player.x = 20;
+  }
+
+  function moveRight() {
+    player.x += player.speed;
+    if (player.x > canvas.width - 20) player.x = canvas.width - 20;
+  }
+
+  // Start
+  setInterval(spawnBomb, 1000);
+  gameLoop();
+</script>
+</body>
+</html>
