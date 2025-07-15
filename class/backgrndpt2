@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>Gojo</TITLE>
+        <STYle>
+            #lin{
+                width: 300px;
+                height: 300px;
+                background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(8, 7, 106, 1) 26%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 95%);
+            }
+            #rad{
+                width: 300px;
+                height: 300px;
+                background: #020024;
+background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(8, 7, 106, 1) 26%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 95%);
+            }
+        </STYle>
+    </HEAD>
+    <body>
+        <div id="lin">
+            linear-gradient
+        </div>
+        <div id="rad">
+            linear-gradient
+        </div>
+    </body>
+</HTML>
