@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>text-decoration</title>
+        <style>
+            h1{
+                font-size: larger;
+                color: coral;
+                text-shadow: 4px 4px 4px blue;
+            }
+            div{
+                border: 1px solid black;
+                background-color: blanchedalmond;
+                width: 100px;
+                height: 50px;
+                box-shadow: 4px 4px 3px aquamarine ;
+            }
+        </style>
+        <body>
+            <h1>gojooooooooooooo</h1>
+            <div>codingal</div>
+        </body>
+    </head>
+</html>

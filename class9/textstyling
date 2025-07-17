@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><h4>text styling</h4></title>
+        <style>
+            body{
+                background-color: black;
+            }
+            h1{
+                text-align: center;
+                font-size: 40px;
+                color:aqua;
+            }
+            p{
+                color: #12e8f8;
+                font-size: 20px;
+                font-family: 'Courier New', Courier, monospace;
+            }
+        </style>
+        <body>
+            <h1>THE ONLY HONOURED ONE</h1>
+            <P>Satoru Gojo is a prominent character in the anime and manga series Jujutsu Kaisen. He is a special grade jujutsu sorcerer and is considered the strongest sorcerer of the modern era. Gojo is known for his overwhelming power, exceptional skill, and playful yet confident personality. He is a teacher at Tokyo Jujutsu High and mentors the main characters, Yuji Itadori, Megumi Fushiguro, and Nobara Kugisaki. </P>
+        </body>
+    </head>
+</html>

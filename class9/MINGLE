@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            mingle
+        </title>
+        <style>
+            h1,h2,h3,h4{
+                color: rgb(13, 8, 1);
+            }
+            h1{
+                text-decoration: line-through;
+                text-transform: capitalize;
+            }
+            h2{
+                text-decoration: overline;
+                text-transform: uppercase;
+            }
+            h3{
+                text-decoration: underline;
+                text-transform: lowercase;
+            }
+            h4{
+                text-decoration: overline underline;
+                text-transform: none;
+            }
+
+        </style>
+        <body>
+            <h1>
+                Gojo
+            </h1>
+            <h2>
+                is
+            </h2>
+            <h3>
+                the
+            </h3>
+            <h4>
+                strongest
+            </h4>
+        </body>
+    </head>
+</html>
