@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorry Mom</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #fff0f5, #d0f0ff);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #333;
+      padding: 30px;
+      border: 8px dotted #ffcce0;
+      border-radius: 20px;
+      width: 75%;
+      margin: 50px auto;
+      box-shadow: 0 0 25px #ffb3c6;
+    }
+    h1 {
+      color: #e75480;
+      text-align: center;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #0077b6;
+    }
+    .footer {
+      margin-top: 30px;
+      font-style: italic;
+      text-align: right;
+      color: #777;
+    }
+    .progress-container {
+      background-color: #eee;
+      border-radius: 10px;
+      width: 100%;
+      height: 25px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background-color: #76c893;
+      text-align: center;
+      line-height: 25px;
+      color: white;
+      font-weight: bold;
+      animation: load 6s forwards;
+    }
+    @keyframes load {
+      0% { width: 0%; }
+      25% { width: 25%; }
+      50% { width: 50%; }
+      75% { width: 75%; }
+      100% { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Sorry Mom 💖</h1>
+
+  <p>I spent a lot of time doing my work carefully today. Here's how I did:</p>
+
+  <div class="progress-container">
+    <div class="progress-bar">100%</div>
+  </div>
+
+  <p>📝 <span class="highlight">1 French worksheet</span><br>
+     ✍️ <span class="highlight">2 English worksheets</span><br>
+     🌍 <span class="highlight">3 Geography pages</span></p>
+
+  <p>I tried to write neatly and not rush anything, so it took longer than I thought.  
+     I’m really sorry I couldn’t complete more today. But I’ll catch up tomorrow!</p>
+
+  <p>Thanks for understanding, Mom. Love you ❤️</p>
+
+  <div class="footer">— Your hardworking kid, <strong>Swastik</strong> 😇</div>
+</body>
+</html>

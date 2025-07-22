@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorry, Mumma</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe0f0, #e0f7fa);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #444;
+      padding: 30px;
+      border: 8px dashed #ffb3c6;
+      border-radius: 20px;
+      width: 75%;
+      margin: 50px auto;
+      box-shadow: 0 0 25px #ffcce7;
+    }
+    h1 {
+      color: #d63384;
+      text-align: center;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #0096c7;
+    }
+    .footer {
+      margin-top: 30px;
+      font-style: italic;
+      text-align: right;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sorry Mom 💖</h1>
+
+  <p>I tried really hard today and worked for almost <span class="highlight">6 hours</span> straight.</p>
+
+  <p>💪 I finished all my <span class="highlight">French worksheets</span>.<br>
+     ✍️ I also completed <span class="highlight">2 English worksheets</span>.<br>
+     🌍 And I quickly did my <span class="highlight">Geography homework</span>.</p>
+
+  <p>I know I couldn't finish every single thing... and I'm really sorry. I didn’t have the full English syllabus with me to revise.</p>
+
+  <p>But I promise I'm not wasting time and I’ll finish the rest soon. Thank you for being patient ❤️</p>
+
+  <div class="footer">— Your hardworking kid, <strong>Swastik</strong> 😇</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            advanced selectors
+        </title>
+        <style>
+            /* attribute selector */
+            input[type=text]{
+                border: 3px solid blue;
+            }
+            input[type=password]{
+                border: 4px solid red;
+            }
+            /* child selector */
+            ul>li{
+                color: purple;
+                font-size: 24px;
+            }
+            /* sibling selector */
+            h1 + p{
+                color: rgb(16, 212, 13);
+
+            }
+            /* pseudo classes */
+            a:hover{
+                color: turquoise;
+                font-size: 12;
+
+            }
+            li:nth-child(3){
+                background-color: chartreuse;
+
+            }
+            /* pseduo elements */
+            li::before{
+                content: "🎇";
+            }
+            p::{
+                content: "🧿";
+            }
+            p::first-letter{
+                font-size: 200%;
+                color: chartreuse;
+            }
+
+        </style>
+    </head>
+    <body>
+        <input type = text><br><br>
+        <input type = password><br><br>
+        <h1>sorcery mission</h1>
+        <ul>
+            <li>kill the special grade object</li>
+            <li>yuji itadori</li>
+            <li>nobara kugisaki</li>
+            <li>megumi fushiguro</li>
+        </ul>
+        <h1>sorcery</h1>
+        <p> "special grade cursed object mission" in the context of Jujutsu Kaisen likely refers to a high-stakes mission involving a cursed object of the highest classification, special grade. These missions are extremely dangerous and require powerful jujutsu sorcerers to handle, due to the immense power and unpredictable nature of special grade cursed objects</p>
+        <p>Jujutsu ( 呪 じゅ 術 じゅつ , Jujutsu? lit. "Sorcery"), also known as Jujutsu Sorcery, is one of the defining features of the Jujutsu Kaisen series. Jujutsu is often used as an umbrella term that includes all sorcery-related abilities that sorcerers and cursed spirits can access using cursed energy</p>
+        <a href="=">sorcery</a>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Styling Properties</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f8ff;
+    }
+
+    h1 {
+      color: #1e90ff;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 5px gray;
+    }
+
+    .underline {
+      text-decoration: underline;
+      color: #ff4500;
+      font-size: 24px;
+    }
+
+    .italic {
+      font-style: italic;
+      font-size: 20px;
+      color: #008080;
+    }
+
+    .bold {
+      font-weight: bold;
+      font-size: 22px;
+      color: #4b0082;
+    }
+
+    .spacing {
+      letter-spacing: 5px;
+      word-spacing: 15px;
+      font-size: 18px;
+    }
+
+    .lineheight {
+      line-height: 2;
+      background-color: #ffffe0;
+      padding: 10px;
+      border-left: 4px solid #ffa500;
+    }
+  </style>
+</head>
+<body>
+  <h1>Text Styling in CSS</h1>
+
+  <p class="underline">This text is underlined.</p>
+  <p class="italic">This text is italicized.</p>
+  <p class="bold">This text is bold.</p>
+  <p class="spacing">This text has spacing between letters and words.</p>
+  <p class="lineheight">
+    This paragraph has increased line height. <br>
+    CSS text styling helps improve readability and adds visual interest to web content.
+  </p>
+</body>
+</html>
