@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            box
+        </title>
+        <style>
+            
+            #r{
+                width: 100px;
+                height: 100px;
+                float: left;
+            }
+            #l{
+                width: 30px;
+                height: 30px;
+                float :left;
+            }
+        </style>
+        <body>
+                <p>
+                    <img id="r" src="gogo.png" alt="gojo">
+                    <img id="l" src="gogo.png" alt="gojo">
+                    <p>Quick version: Gravida means pregnancies and Para means live births. If your patient has had a miscarriage and two live births, you could say she was Gravida 3, Para 2 or simply G3 P2.</p>
+                </p>
+
+        </body>
+    </head>
+</html>
