@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Box Model</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .margin {
+      background-color: #ffe0b2;
+      padding: 20px;
+    }
+
+    .border {
+      border: 5px solid #ff9800;
+      padding: 20px;
+    }
+
+    .padding {
+      background-color: #bbdefb;
+      padding: 20px;
+    }
+
+    .content {
+      background-color: #e1bee7;
+      color: #000;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="margin">
+  <div class="label">Margin</div>
+  <div class="border">
+    <div class="label">Border</div>
+    <div class="padding">
+      <div class="label">Padding</div>
+      <div class="content">
+        <div class="label">Content</div>
+        This is the content area.
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

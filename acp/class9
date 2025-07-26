@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudo Classes Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    /* Example 1: Hover */
+    .hover-box {
+      width: 200px;
+      height: 100px;
+      background-color: #2196f3;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    .hover-box:hover {
+      background-color: #0d47a1;
+    }
+
+    /* Example 2: nth-child */
+    ul li:nth-child(even) {
+      background-color: #e0f7fa;
+    }
+
+    ul li:nth-child(odd) {
+      background-color: #ffe0b2;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      padding: 10px;
+    }
+
+    /* Example 3: First child */
+    p:first-child {
+      color: green;
+      font-weight: bold;
+    }
+
+    /* Example 4: Checked */
+    input[type="checkbox"]:checked + label {
+      text-decoration: line-through;
+      color: gray;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>1. :hover Example</h2>
+  <div class="hover-box">Hover over me!</div>
+
+  <h2>2. :nth-child Example</h2>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+  </ul>
+
+  <h2>3. :first-child Example</h2>
+  <div>
+    <p>This is the first paragraph.</p>
+    <p>This is another paragraph.</p>
+  </div>
+
+  <h2>4. :checked Example</h2>
+  <div>
+    <input type="checkbox" id="task1">
+    <label for="task1">Complete homework</label><br>
+
+    <input type="checkbox" id="task2">
+    <label for="task2">Play games</label>
+  </div>
+
+</body>
+</html>

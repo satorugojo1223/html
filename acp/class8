@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Properties and Values</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .box {
+      width: 300px;
+      height: 150px;
+      background-color: lightblue; /* property: background-color, value: lightblue */
+      border: 2px solid navy;      /* property: border, value: 2px solid navy */
+      color: darkblue;             /* property: color, value: darkblue */
+      padding: 20px;
+      margin: 20px auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Properties and Values</h1>
+
+  <div class="box">
+    This box uses properties like <b>color</b>, <b>background-color</b>, and <b>border</b>.
+  </div>
+
+</body>
+</html>
