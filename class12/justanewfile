@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            positioning in css
+        </title>
+    </head>
+    <style>
+        div{
+            background-color: aqua;
+            width: 300px;
+            height: 100px;
+        }
+        #one{
+            opacity: 0.2;
+        }
+        #two{
+            opacity: 0.4;
+        }
+        #three{
+            opacity: 0.8;
+        }
+        #four{
+            opacity: 1;
+        }
+
+    </style>
+    <body>
+        <div id="one">
+            hello
+        </div>
+        <div id="two">
+            hello again
+        </div>
+        <div id="three">
+            bro what
+        </div>
+        <div id="four">
+            damn bro end this
+        </div>
+    </body>
+</html>

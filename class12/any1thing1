@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<HTMl>
+    <HEAD>
+        <TITle>
+            POSITIONING
+        </TITle>
+    </HEAD>
+    <STYle>
+        #STAtICS{
+            position: static;
+            background-color: rgb(19, 216, 69);
+            width: 300px;
+            HEIGHT: 50px;
+            left: 200px;
+            top: 100px;
+        }
+        #fixed{
+            position: fixed;
+            background-color: rgb(234, 103, 21);
+            width: 200px;
+            height: 100px;
+            left: 250px;
+            top: 200px;
+        }
+        #relative{
+            position: relative;
+            background-color: rgb(228, 24, 228);
+            width: 100px;
+            height: 50px;
+            left: 100px;
+            top: 200px;
+        }
+        #absolute{
+            position: absolute;
+            background-color: rgb(22, 157, 206);
+            width: 150px;
+            height: 100px;
+            left: 100px;
+            top: 50px;
+        }
+        #sticky{
+            position: sticky;
+            background-color: rgb(226, 237, 16);
+            width: 200px;
+            height: 100px;
+            left: 100px;
+            top: 10px;
+        }
+    </STYle>
+    <body>
+        <div id="STAtICS">
+                STATIC POSITIONING
+        </div>
+                <div id="fixed">
+                    FIXED POSITIONING
+                </div>
+                    <div id="relative">
+                        relative position
+                    </div>
+                    <div id="absolute">
+                        absolute POSITIONING
+                    </div>
+                    <div id="sticky">
+                        sticky positioning
+                    </div>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    </body>
+</HTMl>
