@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Positioning Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f0f8ff;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      position: relative;
+      height: 500px;
+      border: 2px dashed #aaa;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .box {
+      width: 120px;
+      height: 80px;
+      padding: 10px;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .static-box {
+      background-color: #0074D9;
+      position: static;
+    }
+
+    .relative-box {
+      background-color: #2ECC40;
+      position: relative;
+      left: 40px;
+      top: 10px;
+    }
+
+    .absolute-box {
+      background-color: #FF4136;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .fixed-box {
+      background-color: #FF851B;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .sticky-box {
+      background-color: #B10DC9;
+      position: sticky;
+      top: 0;
+    }
+
+    .label {
+      margin-top: 5px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2 class="title">CSS Positioning Types</h2>
+
+  <div class="container">
+    <div class="box static-box">Static</div>
+    <div class="box relative-box">Relative</div>
+    <div class="box absolute-box">Absolute</div>
+    <div class="box sticky-box">Sticky</div>
+  </div>
+
+  <div class="box fixed-box">Fixed</div>
+
+</body>
+</html>
