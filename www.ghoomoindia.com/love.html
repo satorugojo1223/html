@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My pyari Mumma 💖 | Homework Done</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#fde8f5; /* pink tint */
+      --bg2:#e6f6ff; /* blue tint */
+      --card:#ffffffcc; /* glass */
+      --ink:#1f2937; /* slate-800 */
+      --soft:#6b7280; /* slate-500 */
+      --accent:#ff4d8a; /* warm pink */
+      --accent-2:#6ee7b7; /* mint */
+      --accent-3:#a78bfa; /* violet */
+      --ring:#ffb4ce; /* ring glow */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      display:grid; place-items:center;
+      padding: 28px;
+    }
+    .wrap{
+      width:min(920px, 100%);
+      position:relative;
+    }
+    /* floating hearts */
+    .float-heart{
+      position:absolute; inset:auto auto 100% 12px; font-size:28px; opacity:.55;
+      animation: bob 3.6s ease-in-out infinite;
+    }
+    .float-heart.h2{ left:auto; right:14px; animation-duration: 4.2s; }
+    @keyframes bob{ 0%,100%{ transform: translateY(0)} 50%{ transform: translateY(-8px)} }
+
+    .card{
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(17,24,39,.15);
+      border: 1px solid rgba(255,255,255,.6);
+      overflow:hidden;
+      position: relative;
+    }
+
+    .hero{
+      padding: 28px 28px 10px 28px;
+      background: radial-gradient(1200px 300px at 50% -80px, #ffffff, transparent 60%);
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 14px; border-radius: 999px; font-size: 13px; color:#0f172a;
+      background: #fff; border:1px solid #e5e7eb; box-shadow: 0 6px 20px rgba(0,0,0,.06);
+    }
+    .title{
+      font-size: clamp(28px, 5.5vw, 44px); line-height:1.1; margin:16px 0 8px; font-weight:800;
+    }
+    .subtitle{ color: var(--soft); margin:0 0 14px; font-size: clamp(14px, 2.5vw, 18px); }
+
+    .checklist{
+      display:grid; gap:14px; padding: 0 28px 24px 28px; margin: 12px 0 0;
+    }
+    .item{
+      display:flex; align-items: flex-start; gap:14px;
+      background: #fff; border:1px solid #f1f5f9; border-radius:16px; padding:14px 16px;
+      box-shadow: 0 10px 24px rgba(15,23,42,.05);
+      animation: pop .6s ease both;
+    }
+    .item:nth-child(2){ animation-delay:.08s }
+    .item:nth-child(3){ animation-delay:.16s }
+    @keyframes pop{ from{ transform: translateY(8px) scale(.98); opacity:0 } to{ transform: translateY(0) scale(1); opacity:1 } }
+
+    .tick{
+      width:28px; height:28px; border-radius:8px; display:grid; place-items:center; flex:0 0 28px;
+      background: linear-gradient(135deg, var(--accent), #ff8ab2);
+      box-shadow: 0 10px 18px rgba(255, 77, 138, .35);
+      color:#fff; font-weight: 800;
+    }
+    .subject{ font-weight:700; }
+    .note{ color: var(--soft); margin-top:2px; font-size: 14px; }
+
+    .love{
+      display:grid; gap:10px; padding: 20px 28px 32px 28px; background: linear-gradient(180deg, transparent, #ffffffaa 30%, #ffffff);
+      border-top: 1px dashed #f3e0e6;
+    }
+    .love h3{ margin: 0; font-size: 20px; }
+    .love p{ margin:0; color:#475569; }
+    .hi{ font-size: 18px; }
+
+    .ribbon{
+      position:absolute; top:16px; right:-60px; rotate: 10deg;
+      background: linear-gradient(135deg, var(--accent-3), #60a5fa);
+      color:white; padding:10px 80px; font-weight:800; letter-spacing:.5px; box-shadow: 0 10px 30px rgba(99,102,241,.35);
+      clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
+      text-transform: uppercase; font-size:12px;
+    }
+
+    .footer{ text-align:center; color:#64748b; font-size:13px; padding: 6px 0 20px 0; }
+
+    @media print{
+      body{ background:white; }
+      .ribbon, .float-heart{ display:none; }
+      .card{ box-shadow:none; border:1px solid #e5e7eb; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="float-heart">💗</div>
+    <div class="float-heart h2">💝</div>
+
+    <div class="card" role="article" aria-label="Note to Mom">
+      <div class="ribbon">Work Done</div>
+
+      <section class="hero">
+        <span class="badge" aria-label="From me to mom">💌 From me, with love</span>
+        <h1 class="title">For My pyari Mumma 💖</h1>
+        <p class="subtitle">I finished my work and I wanted you to know first!</p>
+      </section>
+
+      <section class="checklist" aria-label="Completed subjects">
+        <div class="item">
+          <div class="tick" aria-hidden="true">✓</div>
+          <div>
+            <div class="subject">Hindi—(Shabd Bhandar)</div>
+            <div class="note">All vocabulary work (only exercisesas i wanted to make this)completed carefully.</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="tick" aria-hidden="true">✓</div>
+          <div>
+            <div class="subject">Science</div>
+            <div class="note">Entire homework finished and checked twice.</div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="tick" aria-hidden="true">✓</div>
+          <div>
+            <div class="subject">GAME STUDIOS💑</div>
+            <div class="note">Python notes with game development (You can check that in my diary) ✨</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="love" aria-label="Message for Mom">
+        <h3>Dear Mumma,</h3>
+        
+        <p>This took me tons of time to make, as i wanted to make it special for a mom so special like you. I hope this makes you smile. Thank you for always believing in me and cheering me on. I did my best — for you! 💞 pyari mummaa</p>
+        <p style="margin-top:8px; font-weight:700;">With love,<br>Swastik</p>
+      </section>
+
+      <div class="footer">Made with love and honesty ❤</div>
+    </div>
+  </div>
+  <h6>one more tiny thing i love u Mumma</h6>
+  <h6>it took me <h1>167 lines</h1>to write</h6>
+</body>
+</html>
