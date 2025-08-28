@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head><title>i dont know</title></head>
+    <style>
+        
+    </style>
+    <body>
+        <div id="content1">
+            <div id="head">function</div>
+            <div id="button">
+                <input type="button" onclick = "myfunction(12)" value="click me">
+            </div>
+            <div id="result"></div>
+        
+        <script>
+            function myfunction(x,y){
+                if (y == undefined){
+                    y = 5
+                } 
+                
+                document.getElementById("result").innerHTML = "the product is"+(x*y)
+
+            }
+        </script>
+        </div>
+    </body>
+</html>

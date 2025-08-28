@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>scope of the function</title>
+    </head>
+    <body>
+        <h1>function scope</h1>
+        <div id="content">
+            <button onclick="function1()">click me :)</button>
+        </div>
+        <div id="res"></div>
+          <div id="res1"></div>
+            <div id="res2"></div>
+            <script>
+                var a = 12
+                function function1()
+                {
+                    var b = 7
+                    document.getElementById("res").innerHTML="the sum is"+(a+b)
+                }
+                document.getElementById("res1").innerHTML = "a = "+ a
+                 document.getElementById("res2").innerHTML = "b = "+ b
+            </script>
+    </body>
+</html>
