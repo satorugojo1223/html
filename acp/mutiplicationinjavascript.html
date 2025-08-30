@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Using Functions</title>
+</head>
+<body>
+  <h1>Multiplication Using Functions</h1>
+
+  <p id="result"></p>
+
+  <script>
+    // Function for multiplication
+    function multiply(num1, num2) {
+      return num1 * num2;
+    }
+
+    // Example multiplications
+    let result1 = multiply(2, 3);
+    let result2 = multiply(5, 4);
+    let result3 = multiply(7, 8);
+
+    // Show results on webpage
+    document.getElementById("result").innerHTML = 
+      "2 × 3 = " + result1 + "<br>" +
+      "5 × 4 = " + result2 + "<br>" +
+      "7 × 8 = " + result3;
+  </script>
+</body>
+</html>
