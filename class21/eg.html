@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>loops</title>
+        <style>
+            h1{
+                color: cornflowerblue;
+                font-size: 40px;
+            }
+            body{
+                background-color: aquamarine;
+                color: rgb(215, 53, 17);
+                text-align: center;
+            }
+            h1::after{
+                content: "😎";
+            }
+            h1::before{
+                content: "🙂";
+            }
+            #res{
+                width: 400px;
+                left : 50% ;
+                top:50%;
+                position: absolute;
+                background-color: blueviolet;
+                padding: 30px;
+                transform: translate(-50%,-50%);
+                border: 3px solid blue;
+                border-radius: 10px;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>switch case</h1>
+        <div id="res">
+        </div>
+        <script>
+            var dt = new Date()
+            var day = dt.getDay()
+            var res = ""
+            switch (day){
+                case 0:
+                res = "sunday"
+                break
+                case 1:
+                res = "monday"
+                break
+                case 2:
+                res = "tuesday"
+                break
+                case 3:
+                res = "wednesday"
+                break
+                case 4:
+                res = "thursday"
+                break
+                case 5:
+                res = "friday"
+                break
+                case 6:
+                res = "saturday"
+                break
+            }
+            document.getElementById("res").innerHTML = "today is " + res
+        </script>
+    </body>
+</html>

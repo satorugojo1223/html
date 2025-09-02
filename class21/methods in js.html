@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>methods in js</title>
+        <style>
+            h1{
+                color: cornflowerblue;
+                font-size: 40px;
+            }
+            body{
+                background-color: aquamarine;
+                color: rgb(215, 53, 17);
+                text-align: center;
+            }
+            h1::after{
+                content: "😎";
+            }
+            h1::before{
+                content: "🙂";
+            }
+            #content{
+                width: 400px;
+                left : 50% ;
+                top:50%;
+                position: absolute;
+                background-color: blueviolet;
+                padding: 30px;
+                border: 3px solid blue;
+                border-radius: 10px;
+                font-size: 24px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>methods</h1>
+        <div id="content">
+        <div id="res"></div>
+        <div id="res1"></div>
+        <div id="res2"></div>
+        <div id="res3"></div>
+        </div>
+        <script>
+            var strl = "swastik"
+            document.getElementById("res").innerHTML="the upper case is"+strl.toUpperCase()
+              document.getElementById("res1").innerHTML="the upper case is"+strl.toLowerCase()
+                document.getElementById("res2").innerHTML="the swastik starts with s="+strl.startsWith()
+                var str2="i love coding"
+                var pat = new RegExp("learn")
+                var res=pat.test(str2)
+                document.getElementById("res3").innerHTML="the coding starts with s ="+res 
+
+        </script>
+    </body>
+</html>
