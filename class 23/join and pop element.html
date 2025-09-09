@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>join and pop</title>
+    </head>
+    <body>
+        <h1>methods in array</h1>
+        <div id="res"></div>
+        <div id="res1"></div>
+        <div id="res2"></div>
+        <script>
+            var fruits = ["apple","orange","grapefruit","mango","rafflesia","elder strawberry"]
+            document.getElementById("res").innerHTML = "the original array "+[fruits]
+            document.getElementById("res1").innerHTML = "array joined by using join method "+fruits.join("&")+
+            fruits.pop()
+            document.getElementById("res2").innerHTML = "arrays after popping "+fruits 
+        </script>
+    </body>
+</html>

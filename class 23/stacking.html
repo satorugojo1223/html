@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            stacking
+        </title>
+    </head>
+    <body>
+        <h1>call stack</h1>
+        <div id="res"></div>
+
+
+
+        <script>
+            function add(a,b){
+                return a+b
+            }
+            function avg(a,b)
+            {
+                return add(a,b)/2
+            }
+            document.getElementById("res").innerHTML = "the average of 100 and 150 is "+ avg(100,150)
+        </script>
+    </body>
+</html>
