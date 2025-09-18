@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>inheritance</title>
+    </head>
+    <body>
+        <h1>Inheritance Classes</h1>
+        <div id="res"></div>
+        <div id="res1"></div>
+        <script>
+            class s{
+                constructor(rank)
+                {
+                    this.rank = rank
+                }
+                disp(){
+                    document.write("the heros name is ",this.rank)
+                }
+            }
+            class model extends s{
+                constructor(rank,modelyr){
+                    super(rank)
+                    this.modelyr = modelyr
+                    
+                }
+                display()
+                {
+                    this.disp()
+                    document.write("<br> the heros model is ", this.modelyr)
+                }
+            }
+
+            model1 = new model("genos",2000)
+            model1.display()
+
+        </script>
+    </body>
+</html>

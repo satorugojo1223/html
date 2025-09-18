@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Classes in JS</title>
+        <style>
+            h1{
+                color: rgb(127, 2, 2);
+                text-align: center;
+            }
+            h2{
+                color: darkblue;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Classes in JS</h1>
+        <div id="res"></div>
+        <div id="res1"></div>
+        <script>
+            class student{
+                constructor(name,byear){
+
+                    this.name = name
+                    this.byear = byear
+                }
+                age(){
+                    var dt = new Date()
+                    var yy = dt.getFullYear()
+                    document.getElementById("res").innerHTML = "my name is "+ this.name
+                    document.getElementById("res1").innerHTML = "my age is "+(yy- this.byear)
+
+
+                }
+            }
+            student1 = new student("madara",1025)
+            student1.age()
+        </script>
+    </body>
+    <h2>madara:-
+        Madara Uchiha was a legendary Uchiha clan leader and a co-founder of Konohagakure, the Hidden Leaf Village, alongside his rival and best friend Hashirama Senju. After his childhood and a period of conflict with the Senju, he eventually helped establish the village with the goal of achieving peace. However, his disillusionment with the world led him to believe that only through a grand illusion, the Infinite Tsukuyomi, could true peace be attained, a plan he later entrusted to Obito Uchiha before his actual death.  
+        <img src="madara uchiha.webp" alt="madara" border = 9>
+    </h2>
+</html>
