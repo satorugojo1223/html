@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sorting in HTML</title>
+    </head>
+    <body>
+        <h1>Sorting</h1>
+        <button onclick="asc()">ascending</button>
+        <button onclick="desc()">descending</button>
+        <div id="res"></div>
+        <script>
+            var points = [23,46,476,478,3786,,6346,36,63,64,5,46224646,67652376235769,6842527843469,346257862796596349,628956278346784579658,368523588,257823479679245,576,23786,682357946865971389153793673513617137356287823563592,785793567153935781796235679356925673547956728045583473528540235785379057235134852376851349075361355407,13531654613458134712458]
+            document.getElementById("res").innerHTML = points
+            function asc()
+            {
+                points.sort(function(a,b) {return a-b})
+
+                document.getElementById("res").innerHTML = points
+            }
+            function desc()
+            {
+                points.sort(function(a,b) {return b-a})
+
+                document.getElementById("res").innerHTML = points
+            }
+        </script>
+    </body>
+</html>
