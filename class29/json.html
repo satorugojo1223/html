@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            jason
+        </title>
+    </head>
+    <body>
+        <h2>convert javascript in json'</h2>
+        <p id="res"></p>
+        <script>
+            var myobj = {name :"john doe",
+                age : 123,
+                grade : 7};
+                document.write(myobj.name+"<br>"+ myobj.age + "<br>" + myobj.grade+ "<br>")
+                var myjson = JSON.stringify(myobj);
+                document.write(myjson.name + "<br>")
+                var newobj = JSON.parse(myjson);
+                document.write(newobj.name)
+
+        </script>
+    </body>
+</html>

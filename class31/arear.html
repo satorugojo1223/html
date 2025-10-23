@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <title>area</title>
+            <body>
+                <h1>area calculator</h1>
+                <script>
+                    var ch = prompt("1.Rectangle \n2.triangle \n3. paralelogram \n4.circle \n enter ur choice")
+                    var l,w,h,r,b
+                    var area
+                    if (ch=="1"){
+                        l=prompt("enter ur length")
+                        b=prompt("enter ur breadth")
+                        area = l*b
+                        alert("the area of ur rectangle is = "+area)
+                    }
+                    else if (ch=="2"){
+                         l=prompt("enter ur length")
+                        b=prompt("enter ur breadth")
+                        area = l*b*0.5
+                        alert("the area of ur tri is = "+area)
+                    }
+                    else if (ch=="3"){
+                         h=prompt("enter ur height")
+                        b=prompt("enter ur breadth")
+                        area = h*b
+                        alert("the area of ur paralleoiogifrf (u understand) is = "+area)
+                    }
+                    else if (ch=="4"){
+                        r=prompt("enterrrrr radious")
+                        area=3.14*r*r
+                        alert("hihihi haw here is ur areaa" +area)
+                    }
+                    else{
+                        alert("wait what how do i craft the area if i dont have the info go fetch me some info then only ")
+                    }
+                </script>
+            </body>
+        </head>
+    </html>

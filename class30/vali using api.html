@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        form validation in html or javascript whatevs
+    </title>
+    <body>
+        age:
+        <input type = number id="age" min=67 max=100 required><br><br>
+        <button onclick="check()">validation</button>
+        <div id="result"></div>
+        <script>
+            function check() {
+                var x = document.getElementById("age")
+                if(!x.checkValidity())
+            {
+                document.getElementById("result").innerHTML = x.validationMessage
+            }
+            else{
+                document.getElementById("result").innerHTML = "input OK"
+            }
+        }
+        </script>
+    </body>
+</html>

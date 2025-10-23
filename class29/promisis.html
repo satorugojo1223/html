@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <div id="res"></div>
+        <script>
+            function display(value){
+                document.getElementById("res").innerHTML = "the result is"+value
+
+            }
+            function add(a,b,)
+            {
+                var c = a+b
+                display(c)
+            }
+        
+            let mypromise = new Promise (function(myResolve,myReject){
+                let x = 0
+                if (x==0){
+                    myResolve("OK")
+                    
+                }
+                else{
+                    myReject("error");
+                }
+            });
+            mypromise.then(
+                function(value) {add(5,5);},
+                function(error) {add(error);},
+            )
+        </script>
+    </body>
+</html>

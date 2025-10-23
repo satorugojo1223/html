@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        form validation in html or javascript whatevs
+    </title>
+    <body>
+        <form name="my form" onsubmit = "validateform()">
+            Name : <input type = text id="name">
+            <br>
+            <br>
+            <input type = submit>
+        </form>
+        <script>
+            function validateform(){
+                var x = document.getElementById("name").value
+                if (x==""){
+                    alert("like bro what name has to be filled for a form")
+                }
+            }
+        </script>
+    </body>
+</html>
