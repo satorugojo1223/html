@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            roll a die
+        </title>
+        <style>
+            body{
+                background-color: aquamarine;
+                text-align: center;
+            }
+            #mydice{
+                font-size: 200px;
+                color: burlywood;
+            }
+            #mydice:hover{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="mydice" onclick = "startstop();"></div>
+        <script>
+            var dice ;
+            var dices = ["&#9856","&#9857","&#9858","&#9859","&#9860","&#9861" ]
+            var t;
+            var stopped = true
+            function change(){
+                var rand = Math.floor(Math.random()*6)
+                dice.innerHTML =dices[rand]
+            }
+            function startstop(){
+                if (stopped){
+                    stopped = false
+                    t = setInterval(change,100)
+                }
+                else{
+                    clearInterval(t)
+                    stopped = true
+
+                }
+            }
+            window.onload = function()
+            {
+                dice = document.getElementById("mydice")
+                dice.innerHTML = dices[0]
+                startstop()
+            }
+        </script>
+    </body>
+</html>
