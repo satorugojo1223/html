@@ -29,6 +29,24 @@
             .topnav a.active{
                 background-color: rgb(202, 216, 10);
             }
+            h1{
+                text-align: center;
+                color: rgb(6, 91, 11);
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                text-shadow: 2px 2px 4px black;
+                
+            }
+            .carousel-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 300px;
+            }
+            .myslides{
+                display: none;
+                max-height: 100%;
+                max-width: 100%;
+            }
         </style>
     </head>
     <body>
@@ -37,6 +55,33 @@
         <a href="what is minecrasft.html">about the game</a>
         <a href="how to play.html">how to play?</a>
         <a href="controls.html">controls</a>
+        </div>
+        <h1>MINECRAFT</h1>
+        <div class="carousel-container">
+            <img class="myslides" src="minecraft.png" width="300" height="300" border = 3 alt="minecraft">
+            <img class="myslides" src="minecraft2.png" width="300" height="300" border = 3 alt="controls">
+            <img class="myslides" src="minecraft3.png" width="300" height="300" border = 3 alt="how to play?">
+            <img class="myslides" src="minecraft4.png" width="300" height="300" border = 3 alt="what is minecraft?">
     </div>
+    <script>
+        var index = 0
+        function carousel()
+        {
+            var i;
+            x = document.getElementsByClassName("myslides")
+            for(i=0;i<x.length;i++)
+        {
+            x[i].style.display = "none"
+        }
+        index++;
+        if(index > x.length)
+        {
+            index = 1
+        }
+        x[index-1].style.display = "block";
+        setTimeout(carousel,2000)
+        }
+        carousel()
+    </script>
     </body>
 </html>
