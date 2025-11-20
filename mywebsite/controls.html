@@ -1,41 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
-    </head>
-    <style>
-        body{
-   
-            font-family:Georgia, 'Times New Roman', Times, serif ;
-            background-color: antiquewhite;
-            padding: 20px;
-          margin: 0;
-        }
-        .gallery{
-            display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-            gap: 20px;
-        }
-        .item{
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px black ;
-            text-align: center;
-        }
-        .item img{
-           width: 100%;
-           height: 200px;
-           object-fit: containx;
-           border-radius: 10px; 
-        }
-        .caption{
-            margin-top: 10px;
-            font-size: 16px;
-            color: gray;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        }
-         .topnav a{
+        <title>
+            MINECRAFT
+        </title>
+        <style>
+            body{
+                margin: 0px;
+                background-color: rgba(94, 240, 9, 0.594);
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                background-image: url("minecraft\ controls.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center ;
+                height: 100%;
+                background-attachment: fixed;
+            }
+             .topnav a{
                 float: right;
                 color: rgb(43, 2, 249);
                 text-align: center;
@@ -54,45 +35,35 @@
             .topnav a.active{
                 background-color: rgb(202, 216, 10);
             }
-    </style>
+            .content{
+                text-align: justify;
+                background-color:rgb(24, 226, 24,0.4);
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                border: 3px solid;
+                border-radius: 10px;
+                transform: translate(-50%,-50%);
+                padding: 20px;
+                font-size: 28px;
+                
+            }
+        </style>
+    </head>
     <body>
-
-         <div class="topnav">
+        <div class="topnav">
         <a href="index.html" class="active">Home</a>
         <a href="what is minecrasft.html">about the game</a>
         <a href="how to play.html">how to play?</a>
         <a href="controls.html">controls</a>
         <a href="recipies.html">recipies</a>
         </div>
-
-        <h1>Swords</h1>
-
-        <div class="gallery">
-
-        <div class="item">
-            <img src="sword1.png" alt="Diamond sword">
-            <div class="caption">this is a diamond sword made from two diamonds and one stick and every other sword is made like this</div>
-        </div>
-                <div class="item">
-            <img src="sword1.png" alt="Diamond sword">
-            <div class="caption">this is a diamond sword made from two diamonds and one stick and every other sword is made like this</div>
-        </div>
-                <div class="item">
-            <img src="sword1.png" alt="Diamond sword">
-            <div class="caption">this is a diamond sword made from two diamonds and one stick and every other sword is made like this</div>
-        </div>
-                <div class="item">
-            <img src="sword1.png" alt="Diamond sword">
-            <div class="caption">this is a diamond sword made from two diamonds and one stick and every other sword is made like this</div>
-        </div>
-                <div class="item">
-            <img src="sword1.png" alt="Diamond sword">
-            <div class="caption">this is a diamond sword made from two diamonds and one stick and every other sword is made like this</div>
-        </div>
-                <div class="item">
-            <img src="sword1.png" alt="Diamond sword">
-            <div class="caption">this is a diamond sword made from two diamonds and one stick and every other sword is made like this</div>
-        </div>
-        </div>
+       <div class="content">
+        <p>Minecraft's basic PC controls are:<br>👉 W, A, S, D for movement;<br>👉 the mouse to look around;<br> 👉Space to jump;<br>👉 Shift to sneak;
+         <br>👉E to open the inventory.
+         <br>👉 Use the left mouse button to destroy blocks or attack and the right mouse button to use items or place blocks.<br>
+          👉 Other useful keys include Q to drop an item,<br>👉 Ctrl to sprint (or double-tap W),<br> 👉F2 to take a screenshot. </p>
+           </div>
     </body>
 </html>
