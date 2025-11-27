@@ -1,0 +1,41 @@
+body{
+  margin: 0px;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: aliceblue;
+}
+.section{
+    text-align: justify;
+    padding: 50px 80px;
+    background-color: black;
+    color: bisque;
+}
+p{
+    font-size:20px;
+    text-align: justify;
+
+}
+#head{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    color: gray;
+}
+            .topnav a{
+                float: right;
+                color: rgb(43, 2, 249);
+                text-align: center;
+                padding: 12px 10px;
+                font-size: 17px;
+                text-decoration: solid;
+            }
+            .topnav {
+                overflow: hidden;
+               background-color: rgb(121, 217, 19); 
+            }
+            .topnav a:hover {
+                color: rgb(0, 255, 17);
+                font-size: 20px;
+            }
+            .topnav a.active{
+                background-color: rgb(202, 216, 10);
+            }
