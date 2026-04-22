@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping List App</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background: white;
+            margin: 5px auto;
+            padding: 10px;
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🛒 Shopping List</h1>
+
+    <input type="text" id="itemInput" placeholder="Enter item">
+    <button onclick="addItem()">Add</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        function addItem() {
+            let input = document.getElementById("itemInput");
+            let value = input.value.trim();
+
+            if (value === "") {
+                alert("Enter something!");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerHTML = value + " <span class='delete' onclick='removeItem(this)'>❌</span>";
+
+            document.getElementById("list").appendChild(li);
+            input.value = "";
+        }
+
+        function removeItem(element) {
+            element.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>
